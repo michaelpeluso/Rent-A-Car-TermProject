@@ -1,8 +1,9 @@
-const oracledb = require("oracledb");
-require("dotenv").config();
+import { getConnection } from "oracledb";
+import dotenv from "dotenv";
+dotenv.config();
 
 async function oracleRequest() {
-    const connection = await oracledb.getConnection({
+    const connection = await getConnection({
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
         connectString: process.env.DB_CONNECTION_STRING,
