@@ -1,13 +1,28 @@
 // on page load
 $(document).ready(function () {
+    getData();
     fetchData();
     manageAdmin();
 });
 
+// get respective data
+function getData() {
+    if (window.location.pathname === "/") {
+        fetchData("SELECT * FROM VEHICLE");
+    } else if (window.location.pathname === "/query") {
+        $("#executeQuery").on("click", function () {
+            const customQuery = $("#customQuery").val();
+            if (customQuery) {
+                fetchData(customQuery);
+            }
+        });
+    }
+}
+
 // request data from oracle
-async function fetchData() {
+async function fetchData(query) {
     try {
-        const response = await fetch("/data"); // api route
+        const response = await fetch(`/data?query=${encodeURIComponent(query)}`);
         const data = await response.json();
         displayData(data.data);
     } catch (error) {

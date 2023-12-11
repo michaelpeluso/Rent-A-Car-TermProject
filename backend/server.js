@@ -18,10 +18,12 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.get("/data", async (req, res) => {
     try {
         const conn = await connectToOracle();
-        const data = await getData(conn, "SELECT * FROM VEHICLE");
+        const query = req.query.query;
+        if (query) {
+            const data = await getData(conn, req.query.query);
+            res.json({ data });
+        }
         closeConnection(conn);
-
-        res.json({ data });
     } catch (error) {
         console.error("Error fetching data:", error.message);
         res.status(500).json({ error: "Internal Server Error" });
@@ -31,6 +33,11 @@ app.get("/data", async (req, res) => {
 // Route for serving the HTML page
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../public", "index.html"));
+});
+
+// Route for serving the HTML page
+app.get("/query", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public", "query.html"));
 });
 
 app.listen(process.env.PORT || 3000, () => {
