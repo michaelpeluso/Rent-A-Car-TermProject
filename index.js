@@ -6,9 +6,13 @@ async function connectToOracle() {
     try {
         // connect to Oracle Database
         const connection = await getConnection({
+            /*
             user: process.env.DB_USER,
             password: process.env.DB_PASSWORD,
-            connectionString: "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=prophet.njit.edu)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SID=course)))",
+            connectionString: "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=prophet.njit.edu)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SID=course)))",*/
+            user: DB_USER,
+            password: DB_PASSWORD,
+            connectionString: DB_CONN_STR,
         });
         console.log("Connected to Oracle Database");
 
