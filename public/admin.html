@@ -19,30 +19,33 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarsExample03">
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav">
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="/vehicle-catalog">Vehicle Catalog</a>
+                    </li>
                     <li class="nav-item px-2 active">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link admin-only" href="/admin">Admin</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="#">Vehicle Catalog</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link admin-only" href="#">Admin</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="data">Recent Data</a>
+                        <a class="nav-link" href="/">Recent Data</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
+        <!-- Request Data from user -->
+        <div class="container form-group p-3">
+            <label>Enter an SQL query</label>
+            <textarea type="text" id="customQuery" class="form-control mb-3" placeholder="SELECT * FROM VEHICLE"></textarea>
+            <button id="executeQuery">Execute Query</button>
+        </div>
+
         <!-- Imported Data -->
-        <div id="data-container"></div>
+        <div id="data-container" class="d-flex justify-content-center"></div>
 
         <!-- Include Scripts -->
         <script type="module" src="index.js"></script>

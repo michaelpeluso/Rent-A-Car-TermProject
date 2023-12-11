@@ -31,13 +31,16 @@ app.get("/data", async (req, res) => {
 });
 
 // Route for serving the HTML page
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public", "index.html"));
+app.get("/login", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public", "login.html"));
 });
 
-// Route for serving the HTML page
-app.get("/query", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public", "query.html"));
+app.get("/vehicle-catalog", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public", "vehicle-catalog.html"));
+});
+
+app.get("/admin", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public", "admin.html"));
 });
 
 app.listen(process.env.PORT || 3000, () => {

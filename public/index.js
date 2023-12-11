@@ -1,21 +1,24 @@
 // on page load
 $(document).ready(function () {
     getData();
-    fetchData();
     manageAdmin();
 });
 
 // get respective data
 function getData() {
-    if (window.location.pathname === "/") {
-        fetchData("SELECT * FROM VEHICLE");
-    } else if (window.location.pathname === "/query") {
+    if (window.location.pathname === "/login") {
+    } else if (window.location.pathname === "/admin") {
         $("#executeQuery").on("click", function () {
             const customQuery = $("#customQuery").val();
             if (customQuery) {
                 fetchData(customQuery);
+            } else {
+                $("#data-container").html("");
+                $("#data-container").append("<p>Enter a valid query<p>");
             }
         });
+    } else if (window.location.pathname === "/vehicle-catalog") {
+        fetchData("SELECT * FROM VEHICLE");
     }
 }
 
@@ -34,7 +37,6 @@ async function fetchData(query) {
 function displayData(data) {
     const container = $("#data-container");
     container.html("");
-    container.addClass("d-flex justify-content-center");
 
     if (data.length === 0) {
         container.append("<p>No data available</p>");

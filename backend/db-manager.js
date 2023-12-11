@@ -24,7 +24,7 @@ export async function connectToOracle() {
 
 // get data from oracle database
 export async function getData(conn, query) {
-    if (conn) {
+    if (conn && query != undefined) {
         try {
             // request data from db
             const result = await conn.execute(query);
@@ -37,8 +37,13 @@ export async function getData(conn, query) {
         } catch (error) {
             console.log("Error retrieving data: ", error);
         }
+        console.log("\n--------", query);
     } else {
-        console.log("Error retrieving: connection is null");
+        if (conn) {
+            console.log("Error retrieving data: query is null");
+        } else {
+            console.log("Error retrieving data: connection is null");
+        }
     }
 }
 
