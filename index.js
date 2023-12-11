@@ -1,6 +1,10 @@
+/*
 import { getConnection } from "oracledb";
 import dotenv from "dotenv";
 dotenv.config();
+*/
+const oracledb = require("oracledb");
+require("dotenv").config();
 
 async function connectToOracle() {
     try {
