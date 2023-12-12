@@ -60,7 +60,7 @@
                     </li>
                     <!-- given queries -->
                     <li>
-                        <a class="dropdown-item" href="#" data-text="SELECT V.Color, COUNT(V.color) AS VEHICLES FROM VEHICLE V GROUP BY V.color">Select the number of each color of vehicle that is sold across all locations.</a>
+                        <a class="dropdown-item" href="#" data-text="SELECT V.Color, COUNT(V.color) AS VEHICLES FROM VEHICLE V GROUP BY V.color">Select the number of vehicles of each color that are sold across all locations.</a>
                     </li>
                     <li><a class="dropdown-item" href="#" data-text="SELECT C.CName FROM MAKES M, CUSTOMER C WHERE M.CID = C.CID GROUP BY C.CName HAVING COUNT(M.CID) > 0">Select all the customers that have made a reservation at any location.</a></li>
                     <li>
@@ -70,7 +70,7 @@
                     </li>
                     <li>
                         <a class="dropdown-item" href="#" data-text="SELECT M.Make, M.MName AS Model, M.MYear AS Year FROM MODEL M, VEHICLE V WHERE M.MID = V.MID AND V.LID IN(SELECT L.LID FROM LOCATION L WHERE L.LID = 19750383)"
-                            >For each vehicle model at Location ID 19750383, select the make, model, and year.</a
+                            >For each vehicle model at Location with an ID of 19750383, select the make, model, and year.</a
                         >
                     </li>
                 </ul>
