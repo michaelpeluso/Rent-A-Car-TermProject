@@ -32,6 +32,7 @@ export async function getData(conn, query) {
         try {
             // request data from db
             const result = await conn.execute(query);
+            console.log(result);
             const data = result.rows;
             console.log(result.rows);
 

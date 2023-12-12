@@ -5,7 +5,6 @@
 // on page load
 $(document).ready(function () {
     getData();
-    manageAdmin();
 
     // get respective data
     function getData() {
@@ -96,14 +95,6 @@ $(document).ready(function () {
 
             table.addClass("table table-striped table-bordered table-hover table-sm");
             container.append(table);
-        }
-    }
-
-    // manage admin privileges
-    function manageAdmin() {
-        // TODO: if signed in
-        if (false) {
-            $(".admin-only").removeClass("admin-only");
         }
     }
 

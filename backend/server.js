@@ -49,6 +49,11 @@ app.get("/data", async (req, res) => {
 });
 
 // Route for serving the HTML page
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public", "admin.html"));
+});
+
 const tableRoutes = ["agrees", "credit-card", "class", "customer", "location", "makes", "model", "rental-agreement", "reservation", "vehicle"];
 tableRoutes.forEach((route) => {
     app.get(`/view-${route}`, (req, res) => {
