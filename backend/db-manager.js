@@ -1,3 +1,7 @@
+/*
+    db-manager.js
+*/
+
 //import dependencies
 import { getConnection } from "oracledb";
 import dotenv from "dotenv";
@@ -24,20 +28,20 @@ export async function connectToOracle() {
 
 // get data from oracle database
 export async function getData(conn, query) {
-    if (conn && query != undefined) {
+    if (conn && query) {
         try {
             // request data from db
             const result = await conn.execute(query);
-
-            // parse data
             const data = result.rows;
+            console.log(result.rows);
 
-            console.log(data);
-            return data;
+            // get column names
+            const columnNames = result.metaData.map((column) => column.name);
+
+            return { data, columnNames };
         } catch (error) {
             console.log("Error retrieving data: ", error);
         }
-        console.log("\n--------", query);
     } else {
         if (conn) {
             console.log("Error retrieving data: query is null");
@@ -56,3 +60,5 @@ export function closeConnection(connection) {
         console.log("Error closing connection: connection is null");
     }
 }
+
+// end of file
