@@ -5,7 +5,7 @@ Below is an in depth description of the project directory and how data from an O
 This creates a long line of function calls between several files allowing data from an Oracle database to be viewed on a webpage. Simply put, the SQL query is built from user input. Then a connection is made to the database, the query is executed, and that data is sent back to the user as output.
 
 ## /public
-The frontend public contains all of the files that manage the front end of the website, relating to its text, visuals, and interactive navigation. 
+The public fodler contains all of the files that manage the front end of the website, relating to its text, visuals, and interactive navigation. 
 
 Of which, “admin.html” includes the code required to display a page that allows for the user to enter their own SQL query or select from the queries listed below in the Queries in SQL section of this document. These queries will return a table that can be seen by the user. This page can be accessed by selecting “Admin” at the top left of the page, inside the navigation bar.
 
