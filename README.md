@@ -4,9 +4,6 @@ Below is an in depth description of the project directory and how data from an O
 ## Project Summary
 A multi-locational car dealership's database with 8 tables, each holding information about vehicles, vehicle make and models, registration tickets, reservations, customers, each location, and prices. A full stack application was created and used to view this data in a simplified presentation. users can also create their own custom queries that show any data they specifically want to see. Used: HTML, JavaScript, Oracle SQL Developer, Node JS, Express JS 
 
-## TL;DR
-This creates a long line of function calls between several files allowing data from an Oracle database to be viewed on a webpage. Simply put, the SQL query is built from user input. Then a connection is made to the database, the query is executed, and that data is sent back to the user as output.
-
 ## /public
 The public fodler contains all of the files that manage the front end of the website, relating to its text, visuals, and interactive navigation. 
 
